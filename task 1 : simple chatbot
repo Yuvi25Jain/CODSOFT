@@ -1,0 +1,50 @@
+'''
+
+                            Online Python Compiler.
+                Code, Compile, Run and Debug python program online.
+Write your code in this editor and press "Run" button to execute it.
+
+'''
+
+def chatbot():
+    user_name = None
+    print("Hello! I'm a simple chatbot. How can I assist you today?")
+    print("May I know your name?")
+    user_name = input("You: ").strip()
+
+    print(f"Chatbot: Nice to meet you, {user_name}! How can I assist you today?")
+    print("You can ask me to add two numbers, ask about the weather, time, or just say 'bye' to exit.")
+
+
+    while True:
+        user_input = input("You: ").strip().lower()
+
+        if user_input == "bye":
+            print("Chatbot: Goodbye! Have a great day!")
+            break
+        elif user_input == "hello":
+            print("Chatbot: hi there may i know your good name? ")
+            
+        elif "add" in user_input or "sum" in user_input:
+            try:
+                # Extract numbers from the user input
+                numbers = input("Chatbot: Please enter two integers separated by a space: ")
+                num1, num2 = map(int, numbers.split())
+                result = num1 + num2
+                print(f"Chatbot: The sum of {num1} and {num2} is {result}.")
+            except ValueError:
+                print("Chatbot: Please enter valid integers.")
+        elif "weather" in user_input:
+            print("Chatbot: I can't check the weather, but it's always sunny in here!")
+        elif "time" in user_input:
+            import datetime
+            current_time = datetime.datetime.now().strftime("%H:%M:%S")
+            print(f"Chatbot: The current time is {current_time}.");
+        elif "end" in user_input or "exit" in user_input :
+            print("Chatbot: it was nice talking you . thank you !")
+            break 
+        else:
+            print("Chatbot: I'm sorry, I didn't understand that. Can you ask something else?")
+
+if __name__ == "__main__":
+    chatbot()
